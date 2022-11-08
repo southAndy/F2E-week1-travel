@@ -1,0 +1,38 @@
+.search-cotainer{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    height: 72px;
+    width: 500px;
+    padding: 8px;
+    margin: 0 auto;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    
+
+    background: #dbd3d3;
+    border-radius: 8px;
+}
+.search-cotainer .city{
+    flex: 2;
+    color:black;
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    /* background-image: url('../../assets/images/Vector.png'); */
+    background-repeat: no-repeat;
+    background-position: 80px 25px;
+    
+}
+
+.attractions{
+    flex:8;
+    background-color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 6px;
+    color:black;
+}
