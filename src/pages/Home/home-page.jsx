@@ -30,7 +30,7 @@ export default function homePage(){
        <div>
         <img src={banner} alt="banner" />
        </div>
-       <Search setSelectCity={setSelectCity} setUserinput={setUserinput} />
+       <Search setSelectCity={setSelectCity} setUserinput={setUserinput} selectCity={selectCity} />
     </>
        
        

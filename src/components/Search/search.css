@@ -19,6 +19,8 @@
 .search-cotainer .city-search{
     position: relative;
     flex: 2;
+
+    text-align: center;
     color:black;
     background-color: white;
     padding: 16px;
@@ -29,7 +31,7 @@
     
 }
 
-.city{
+.cities-show{
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -37,9 +39,20 @@
     top:85%;
 
     background-color: white;
-    width: 68px;
-    padding: 16px;
+
+    color:black;
+    width: 100px;
+    padding: 16px 0;
     border-radius: 8px;
+}
+.cities-show .item:hover{
+    background-color: aliceblue;
+    font-weight: 600;
+}
+.item{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
 
 .attractions{
@@ -49,4 +62,10 @@
     border: none;
     border-radius: 6px;
     color:black;
+}
+
+
+/* effect */
+.cities-none {
+    display: none;
 }
