@@ -17,7 +17,7 @@ export default function search({setSelectCity,setUserinput,selectCity}){
 
     return(
         <section className='search-cotainer'>
-            <div className='city-search' onClick={()=>setIsDropdown(!isDropdown)}>{selectCity?selectCity:'全部'}</div>
+            <div className='city-search' onClick={()=>setIsDropdown(!isDropdown)}>{selectCity?selectCity:'不限區域'}</div>
             <div className={`${isDropdown?'cities-show':'cities-none'}`}>
                 {citiesList.map((cityList,index)=>{
                     return <div key={index} className='item'  onClick={(e)=>updateCity(e)}>{cityList.chineseName}</div>
