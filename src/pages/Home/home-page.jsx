@@ -1,5 +1,6 @@
 import Search from "../../components/Search/search"
 import { useState,useEffect } from "react"
+import axios from "axios";
 
 import banner from "../../assets/images/banner-mountain.png";
 import logo from "../../assets/images/taiwanLogo.png";
@@ -13,10 +14,18 @@ export default function homePage(){
     const [selectCity,setSelectCity] = useState('')
     //kw:userInput
     const [userInput,setUserinput] = useState('')
+    
     //初次載入頁面呼叫API
-    // useEffect(()=>{
-    //     console.log('no call api now');
-    // },[])
+    useEffect( ()=>{
+        console.log('no call api now');
+        let getAPI = async ()=>{
+            let list = await axios('https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity?%24top=200&%24format=JSON').then((api)=>api.data)
+            console.log(list);
+            //取得資料存入state
+            setApi(list)
+        }
+        getAPI()
+    },[])
 
     //監測輸入狀態
     useEffect(()=>{
