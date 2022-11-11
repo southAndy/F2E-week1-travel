@@ -1,12 +1,18 @@
-import Search from "../../components/Search/search"
-import { useState,useEffect } from "react"
+import { useState,useEffect,useMemo } from "react"
 import axios from "axios";
 
+//components
+import Search from "../../components/Search/search"
+import Card from "../../components/Card/card";
+
+//assets
 import banner from "../../assets/images/banner-mountain.png";
 import logo from "../../assets/images/taiwanLogo.png";
 import FavoriteIcon from "../../assets/images/Frame 78.png";
+import locationIcon from "../../assets/images/locationIcon.png"
 
 import "../../components/Navbar/navbar.scss"
+import '../Home/home-page.scss'
 
 export default function homePage(){
     const [api,setApi] = useState([]);
@@ -26,6 +32,21 @@ export default function homePage(){
         }
         getAPI()
     },[])
+    //隨機產生首頁 banner
+    let renderAttractionsBanner = useMemo(()=>{
+        // let renderNumberOneTimes = Math.floor(Math.random()*api.length)
+        // let renderNumberTwoTimes = Math.floor(Math.random()*api.length)
+        let x =api.slice(22,23)
+        console.log(x);
+        return x 
+    },[api])
+    let renderAttractions = useMemo(()=>{
+        // let renderNumberOneTimes = Math.floor(Math.random()*api.length)
+        // let renderNumberTwoTimes = Math.floor(Math.random()*api.length)
+        let x =api.slice(22,26)
+        console.log(x);
+        return x 
+    },[api])
 
     //監測輸入狀態
     useEffect(()=>{
@@ -48,10 +69,38 @@ export default function homePage(){
                 </li>
             </nav>
         </header>
-       <div>
+       <div >
         <img src={banner} alt="banner" />
        </div>
        <Search setSelectCity={setSelectCity} setUserinput={setUserinput} selectCity={selectCity} />
+       <main className="main">
+            <h3>{'近期活動'}</h3>
+                <div className="major-attractions-city">
+                    <div >
+                        <img src={locationIcon} alt="座標圖樣" />
+                    </div>
+                    <span>{'台北 北投區'}</span>
+                </div>
+                {/* refactor:設計共用模組？ */}
+                <figure className="major-attractions">
+                    <img src={renderAttractionsBanner[0]?.Picture.PictureUrl1} alt="banner" />
+                </figure>
+                <figcaption className="major-attractions-title">
+                    {renderAttractionsBanner[0]?.ActivityName}
+                </figcaption>
+                <p className="major-attractions-date">活動日期：{'2021-05-21 ~ 2021-06-20'}</p>
+                <a href={'/Detail'} className='detail'>活動詳情</a>
+            {renderAttractions.map((data)=>{
+                return <Card key={data.ActivityID} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
+            })}
+            <a className="more" href={'/result'}>+ {'更多景點'}</a>
+       </main>
+       <footer>
+        <div>
+            <img src="" alt="" />
+        </div>
+        <p>Front-end: southAndy</p>
+       </footer>
     </>
        
        
