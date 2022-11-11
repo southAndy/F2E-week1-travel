@@ -1,0 +1,43 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+
+    height: 282px;
+    width: 240px;
+    border-radius: 16px;
+
+    background: #FFFFFF;
+    /* 主要色/景點/03 */
+    border: 1px solid #CEE5E7;
+    border-radius: 16px;
+    /* Inside auto layout */
+
+    flex: none;
+}
+
+.card-image{
+    width: 240px;
+    height: 160px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 700;
+
+    margin: 8px ;
+}
+
+.card-location{
+    display: flex;
+    margin: 8px;
+    gap:5px;
+    .icon-box{
+        display: inline-block;
+    }
+}
