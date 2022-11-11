@@ -1,0 +1,21 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+
+    width: 80%;
+    margin: 0 auto;
+
+    padding: 20px;
+}
+
+li{
+    display: flex;
+}
+
+.logo-container{
+    display: inline-block;
+    width: 15px;
+    height: 25px;
+}
