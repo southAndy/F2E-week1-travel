@@ -91,7 +91,7 @@ export default function homePage(){
                 <p className="major-attractions-date">活動日期：{'2021-05-21 ~ 2021-06-20'}</p>
                 <a href={'/Detail'} className='detail'>活動詳情</a>
             {renderAttractions.map((data)=>{
-                return <Card key={data.ActivityID} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
+                return <Card  id={data.ActivityID} key={data.ActivityID} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
             })}
             <a className="more" href={'/result'}>+ {'更多景點'}</a>
        </main>
