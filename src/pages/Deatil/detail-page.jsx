@@ -24,6 +24,9 @@ export default function deatilPage(){
     //     return api.filter((data)=>data.ActivityID===id)
     // },[])
     return (
+        //主要頁面
         <div>welcome to detail</div>
+
+        //附近景點
     )
 }
