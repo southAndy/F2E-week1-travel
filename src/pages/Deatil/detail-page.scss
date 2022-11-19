@@ -1,0 +1,35 @@
+.detail-container{
+    display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px;
+        gap: 40px;
+    
+        position: absolute;
+        height: 1602px;
+        left: 147px;
+        right: 147px;
+        top: 200px;
+    
+        background: #F8F8F8;
+        border-radius: 16px;
+
+        img{
+            width: 100%;
+        }
+
+
+        .main{
+            display: flex;
+            flex-wrap: nowrap;
+            position: unset;
+
+            &-select{
+                flex:1
+            }
+            &-content{
+                flex:1
+            }
+        }
+}
+
