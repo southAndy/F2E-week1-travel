@@ -25,6 +25,7 @@ export default function homePage(){
     const [selectCity,setSelectCity] = useState('')
     //kw:userInput
     const [userInput,setUserinput] = useState('')
+    
 
     //控制 顯示 component 的變數
     const [showCategory,setShowCategory]=useState(0);
@@ -115,7 +116,7 @@ export default function homePage(){
                     {renderAttractionsBanner[0]?.ActivityName}
                 </figcaption>
                 <p className="major-attractions-date">活動日期：{'2021-05-21 ~ 2021-06-20'}</p>
-                <a href={'/Detail'} className='detail'>活動詳情</a>
+                <a href={`/Detail/${renderAttractionsBanner[0]}`} className='detail'>活動詳情</a>
             {renderAttractions.map((data,index)=>{
                 return <Card  id={data.ActivityID} key={index} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
             })}

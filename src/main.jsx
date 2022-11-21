@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter,Route,RouterProvider } from 'react-router-dom'
 
 import HomePage from './pages/Home/home-page';
+import ResultPage from './pages/Result/result-page';
 import DeatilPage from './pages/Deatil/detail-page';
 import ErrorPage from './routes/error-page';
 // import App from './App'
@@ -31,7 +32,7 @@ const routers = createBrowserRouter([
   },
   {
     path:'/Result',
-    element:<section>welcome to Result</section>,
+    element:<ResultPage/>,
     errorElement:<ErrorPage/> 
   },
   {
