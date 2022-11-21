@@ -5,6 +5,7 @@ import citiesList from "../../assets/citiesList.json";
 export default function search({setSelectCity,setUserinput,selectCity}){ 
     const [isDropdown,setIsDropdown] = useState(false)  
     useEffect(()=>{
+        console.log({selectCity});
         console.log('clicked',isDropdown);
     },[isDropdown])
     function updateCity(e){
@@ -19,11 +20,11 @@ export default function search({setSelectCity,setUserinput,selectCity}){
         <section className='search-cotainer'>
             <div className='city-search' onClick={()=>setIsDropdown(!isDropdown)}>{selectCity?selectCity:'不限區域'}</div>
             <div className={`${isDropdown?'cities-show':'cities-none'}`}>
-                {citiesList.map((cityList,index)=>{
+                {citiesList?.map((cityList,index)=>{
                     return <div key={index} className='item'  onClick={(e)=>updateCity(e)}>{cityList.chineseName}</div>
                 })}
             </div>
-            <input onChange={(element)=>setUserinput(element.target.value)} className='attractions' type="text" placeholder="搜尋景點 例如：日月潭、安平古堡" />
+            <input  onChange={(element)=>setUserinput(element.target.value)} className='attractions' type="text" placeholder="搜尋景點 例如：日月潭、安平古堡" />
             <button onClick={()=>sendSearch()}>搜尋</button>
         </section>
     )

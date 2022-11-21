@@ -1,0 +1,55 @@
+.detail-container{
+    display: flex;
+        flex-direction: column;
+        padding: 40px;
+        gap: 40px;
+    
+        position: absolute;
+        height: 1602px;
+        left: 147px;
+        right: 147px;
+        top: 200px;
+    
+        background: #F8F8F8;
+        border-radius: 16px;
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+        .main{
+            display: flex;
+            // justify-content: space-between;
+            flex-wrap: nowrap;
+            position: unset;
+
+            &_title{
+                display: flex;
+                justify-content: space-between;
+
+                h3{
+                    font-family: 'Noto Sans TC';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 40px;
+                    line-height: 58px;                    
+                    color: #08939B;
+                    margin:0;
+                    align-self: center;
+                }
+            }
+            &_pic{
+                margin: 0;
+            }
+
+            &-select{
+                flex:1
+            }
+            &-content{
+                flex:1
+            }
+        }
+}
+

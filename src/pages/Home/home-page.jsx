@@ -15,23 +15,50 @@ import "../../components/Navbar/navbar.scss"
 import '../Home/home-page.scss'
 
 export default function homePage(){
+    const [allData,setAllData] = useState({
+        '0': [],
+        '1': [],
+        '2': [],
+    });
     const [api,setApi] = useState([]);
     //keyword: city
     const [selectCity,setSelectCity] = useState('')
     //kw:userInput
     const [userInput,setUserinput] = useState('')
     
+
+    //控制 顯示 component 的變數
+    const [showCategory,setShowCategory]=useState(0);
+    const API_LIST = ['https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity?%24top=200&%24format=JSON','https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/Taipei?%24top=30&%24format=JSON','https://tdx.transportdata.tw/api/basic/v2/Tourism/Restaurant?%24top=30&%24format=JSON'];
+
+    //
+    useEffect(() => {
+        console.log(`${allData} is changed!`)
+    }, [allData])
+
     //初次載入頁面呼叫API
     useEffect( ()=>{
-        console.log('no call api now');
+        console.log('trigger useEffect');
         let getAPI = async ()=>{
-            let list = await axios('https://tdx.transportdata.tw/api/basic/v2/Tourism/Activity?%24top=200&%24format=JSON').then((api)=>api.data)
-            console.log(list);
+            let list = await axios(API_LIST[showCategory]).then((api)=>api.data)
             //取得資料存入state
+            // allData[showCategory] = list
+            setAllData((prev)=>{
+                console.log(prev);
+                const copyObj = {...prev}
+                // const copyObj = prev
+                copyObj[showCategory] = list
+                return copyObj
+                      
+            })
             setApi(list)
         }
-        getAPI()
-    },[])
+        if(!allData[showCategory]?.length){
+            getAPI()
+        }else{
+            setApi(allData[showCategory])
+        }
+    },[showCategory])
     //隨機產生首頁 banner
     let renderAttractionsBanner = useMemo(()=>{
         // let renderNumberOneTimes = Math.floor(Math.random()*api.length)
@@ -89,10 +116,13 @@ export default function homePage(){
                     {renderAttractionsBanner[0]?.ActivityName}
                 </figcaption>
                 <p className="major-attractions-date">活動日期：{'2021-05-21 ~ 2021-06-20'}</p>
-                <a href={'/Detail'} className='detail'>活動詳情</a>
-            {renderAttractions.map((data)=>{
-                return <Card key={data.ActivityID} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
+                <a href={`/Detail/${renderAttractionsBanner[0]}`} className='detail'>活動詳情</a>
+            {renderAttractions.map((data,index)=>{
+                return <Card  id={data.ActivityID} key={index} image={data.Picture.PictureUrl1} title={data.ActivityName} locationName={data.Location}/>
             })}
+            <button onClick={()=>setShowCategory(0)}>1</button>
+            <button onClick={()=>setShowCategory(1)}>2</button>
+            <button onClick={()=>setShowCategory(2)}>3</button>
             <a className="more" href={'/result'}>+ {'更多景點'}</a>
        </main>
        <footer>
