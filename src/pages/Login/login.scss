@@ -1,0 +1,20 @@
+
+.login-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    gap: 30px;
+    .login {
+            display: flex;
+            flex-direction: column;
+        }
+    .bg{
+        width: 50%;
+
+        img{
+            width: 100%;
+        }
+    }
+}
+

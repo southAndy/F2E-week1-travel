@@ -90,9 +90,7 @@ export default function homePage(){
                     <span>遊台灣</span>
                 </li>
                 <li>
-                    <a href={'/Favorites'} >
-                        <img src={FavoriteIcon} alt="收藏按鈕" />
-                    </a>
+                    <a href={'/Login'}>會員登入</a>
                 </li>
             </nav>
         </header>
