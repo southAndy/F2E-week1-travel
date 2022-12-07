@@ -27,6 +27,8 @@ export default function registerPage(){
            const authentication = getAuth();
            const response =  await createUserWithEmailAndPassword(authentication,account,password)
             console.log(response);
+            //存資料到firebase後跳轉
+            window.location.href='/login';
         }catch(error){
             console.log(error);
             if(error.message){
