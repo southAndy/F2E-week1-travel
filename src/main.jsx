@@ -4,8 +4,10 @@ import { createBrowserRouter,Route,RouterProvider } from 'react-router-dom'
 
 import HomePage from './pages/Home/home-page';
 import ResultPage from './pages/Result/result-page';
+import RegisterPage from './pages/Register/register-page';
 import DeatilPage from './pages/Deatil/detail-page';
 import ErrorPage from './routes/error-page';
+import LoginPage from './pages/Login/login-page';
 // import App from './App'
 import './index.css'
 
@@ -39,6 +41,16 @@ const routers = createBrowserRouter([
     path:'/Favorites',
     element:<section>welcome to Favorites</section>,
     errorElement:<ErrorPage/> 
+  },
+  {
+    path:'/Login',
+    element:<LoginPage/>,
+    errorElement:<ErrorPage/> 
+  },
+  {
+    path:'/Register',
+    element:<RegisterPage/>,
+    errorElement:<ErrorPage/>
   }
 ])
 

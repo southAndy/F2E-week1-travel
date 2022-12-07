@@ -1,0 +1,18 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    input {
+        color:white;
+        padding:10px 20px;
+        font-size: 18px;
+        outline: none;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
+    .submit{
+        margin-top: 10px;
+    }
+}

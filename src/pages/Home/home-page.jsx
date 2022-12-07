@@ -8,8 +8,9 @@ import Card from "../../components/Card/card";
 //assets
 import banner from "../../assets/images/banner-mountain.png";
 import logo from "../../assets/images/taiwanLogo.png";
-import FavoriteIcon from "../../assets/images/Frame 78.png";
 import locationIcon from "../../assets/images/locationIcon.png"
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import "../../components/Navbar/navbar.scss"
 import '../Home/home-page.scss'
@@ -75,6 +76,20 @@ export default function homePage(){
         return x 
     },[api])
 
+    const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+    console.log({user})
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
     //監測輸入狀態
     useEffect(()=>{
         console.log(userInput,selectCity);
@@ -90,9 +105,7 @@ export default function homePage(){
                     <span>遊台灣</span>
                 </li>
                 <li>
-                    <a href={'/Favorites'} >
-                        <img src={FavoriteIcon} alt="收藏按鈕" />
-                    </a>
+                    <a href={'/Login'}>會員登入</a>
                 </li>
             </nav>
         </header>
